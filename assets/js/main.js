@@ -1,4 +1,3 @@
-
 /*
 Here yo uwill find:
     Initial Fetch Content
@@ -9,27 +8,26 @@ Here yo uwill find:
 let _inicio
 let _json_archivo
 
+
+/* Funcion asincorona para obtener un contenido inicial par mostrar */
 async function iniciar(){
     const response      = await fetch('assets/data/contenido.json')
     _inicio             = await response.json()
 
     imprimir_contenido(_inicio.content)
+    //dibujar_en_canvas()
     //console.log(_inicio)
-    
 }
 
 /* Funcion asincorona para obtener la informacion de un archivo json */
 async function obtener_archivo(archivo){
     const response      = await fetch("assets/data/"+archivo)
     _json_file          = await response.json()
-    console.log(_json_file);
+    //console.log(_json_file);
 }
 
 /* Funcion para desglosar el contenido del json | parametro array */
 function imprimir_contenido(arreglo){
-    //console.log("imprimir arreglo")
-    //console.log(arreglo)
-    
     let botones = ``;
 
     for (x in arreglo) {
@@ -39,6 +37,9 @@ function imprimir_contenido(arreglo){
     }
 
     document.getElementById('resultado').innerHTML = botones
+
+    //console.log("imprimir arreglo")
+    //console.log(arreglo)
 }
 
 /* Funcion regresa el template html para un nodo */
